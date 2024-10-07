@@ -21,12 +21,14 @@ public class TelaProfessor extends JFrame {
         JButton buttonListar = new JButton("Listar Alunos");
         JButton buttonRelatorio = new JButton("Gerar Relatório");
         JButton buttonBoletim = new JButton("Gerar Boletim");
+        JButton buttonInserirNotas = new JButton("Inserir Notas"); // Novo botão para inserir notas
 
         // Layout da interface
         JPanel panel = new JPanel();
         panel.add(buttonListar);
         panel.add(buttonRelatorio);
-        panel.add(buttonBoletim); // Adicionando o botão de boletim
+        panel.add(buttonBoletim);
+        panel.add(buttonInserirNotas); // Adicionando o botão de inserir notas
         add(panel);
 
         // Ação para listar alunos
@@ -67,6 +69,33 @@ public class TelaProfessor extends JFrame {
                     boletim.append("Nota Prova 1: ").append(aluno.getNotaProva1()).append("\n");
                     boletim.append("Nota Prova 2: ").append(aluno.getNotaProva2()).append("\n");
                     JOptionPane.showMessageDialog(this, boletim.toString());
+                } else {
+                    JOptionPane.showMessageDialog(this, "Aluno não encontrado!");
+                }
+            }
+        });
+
+        // Ação para inserir notas
+        buttonInserirNotas.addActionListener(e -> {
+            String matricula = JOptionPane.showInputDialog("Digite a matrícula do aluno para inserir as notas:");
+            if (matricula != null && !matricula.isEmpty()) {
+                Aluno aluno = alunoDAO.buscarPorMatricula(matricula);
+                if (aluno != null) {
+                    try {
+                        // Inserindo a nota da Prova 1
+                        String notaProva1Str = JOptionPane.showInputDialog("Digite a nota da Prova 1:");
+                        double notaProva1 = Double.parseDouble(notaProva1Str);
+                        aluno.setNotaProva1(notaProva1);
+
+                        // Inserindo a nota da Prova 2
+                        String notaProva2Str = JOptionPane.showInputDialog("Digite a nota da Prova 2:");
+                        double notaProva2 = Double.parseDouble(notaProva2Str);
+                        aluno.setNotaProva2(notaProva2);
+
+                        JOptionPane.showMessageDialog(this, "Notas inseridas com sucesso para o aluno " + aluno.getNome());
+                    } catch (NumberFormatException ex) {
+                        JOptionPane.showMessageDialog(this, "Por favor, insira um número válido para as notas.");
+                    }
                 } else {
                     JOptionPane.showMessageDialog(this, "Aluno não encontrado!");
                 }

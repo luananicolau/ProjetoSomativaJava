@@ -40,3 +40,8 @@ Idade: 17
 Curso: Engenharia
 Matrícula: 3
 -------------------
+Nome: Yasmin
+Idade: 19
+Curso: Adm
+Matrícula: 15
+-------------------
