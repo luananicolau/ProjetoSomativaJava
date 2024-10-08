@@ -56,24 +56,27 @@ public class TelaProfessor extends JFrame {
             }
         });
 
-        // Ação para gerar boletim
-        buttonBoletim.addActionListener(e -> {
-            String matricula = JOptionPane.showInputDialog("Digite a matrícula do aluno para gerar o boletim:");
-            if (matricula != null && !matricula.isEmpty()) {
-                Aluno aluno = alunoDAO.buscarPorMatricula(matricula);
-                if (aluno != null) {
-                    StringBuilder boletim = new StringBuilder();
-                    boletim.append("Boletim Escolar\n");
-                    boletim.append("Nome: ").append(aluno.getNome()).append("\n");
-                    boletim.append("Curso: ").append(aluno.getCurso()).append("\n");
-                    boletim.append("Nota Prova 1: ").append(aluno.getNotaProva1()).append("\n");
-                    boletim.append("Nota Prova 2: ").append(aluno.getNotaProva2()).append("\n");
-                    JOptionPane.showMessageDialog(this, boletim.toString());
-                } else {
-                    JOptionPane.showMessageDialog(this, "Aluno não encontrado!");
-                }
-            }
-        });
+       // Ação para gerar boletim
+buttonBoletim.addActionListener(e -> {
+    String matricula = JOptionPane.showInputDialog("Digite a matrícula do aluno para gerar o boletim:");
+    if (matricula != null && !matricula.isEmpty()) {
+        Aluno aluno = alunoDAO.buscarPorMatricula(matricula);
+        if (aluno != null) {
+            StringBuilder boletim = new StringBuilder();
+            boletim.append("Boletim Escolar\n");
+            boletim.append("Nome: ").append(aluno.getNome()).append("\n");
+            boletim.append("Curso: ").append(aluno.getCurso()).append("\n");
+            boletim.append("Nota Prova 1: ").append(aluno.getNotaProva1()).append("\n"); // Atualizado para exibir Prova 1
+            boletim.append("Nota Prova 2: ").append(aluno.getNotaProva2()).append("\n"); // Atualizado para exibir Prova 2
+            JOptionPane.showMessageDialog(this, boletim.toString());
+        } else {
+            JOptionPane.showMessageDialog(this, "Aluno não encontrado!");
+        }
+    } else {
+        JOptionPane.showMessageDialog(this, "Matrícula não pode estar vazia!");
+    }
+});
+
 
         // Ação para inserir notas
         buttonInserirNotas.addActionListener(e -> {

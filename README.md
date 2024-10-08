@@ -91,3 +91,96 @@ Desenvolver um sistema de cadastro de alunos que permita o gerenciamento das inf
 **Diagrama de Classes**
 ![Diagrama de Classes](img/classe.PNG)
 
+# Manual do Usuário
+
+Este manual descreve o fluxo de trabalho e as principais funcionalidades do **Sistema de Gerenciamento de Alunos**.
+
+## Índice
+1. [Instalação](#instalação)
+2. [Início Rápido](#início-rápido)
+3. [Funcionalidades do Sistema](#funcionalidades-do-sistema)
+    - [1. Cadastro de Alunos](#cadastro-de-alunos)
+    - [2. Listar Alunos](#listar-alunos)
+    - [3. Buscar Aluno por Matrícula](#buscar-aluno-por-matrícula)
+    - [4. Inserir Notas (Professor)](#inserir-notas-professor)
+    - [5. Gerar Boletim](#gerar-boletim)
+    - [6. Gerar Relatórios](#gerar-relatórios)
+4. [Fluxo Básico de Uso](#fluxo-básico-de-uso)
+
+---
+
+## Instalação
+
+### Requisitos
+- **Java**: Certifique-se de que você tem o JDK 8 ou superior instalado em sua máquina.
+- **Banco de Dados**: O sistema usa PostgreSQL. Certifique-se de que o servidor esteja em execução e que a base de dados esteja configurada corretamente.
+
+
+. Certifique-se de configurar a conexão com o banco de dados PostgreSQL no arquivo de configuração, incluindo usuário, senha, e nome do banco de dados.
+
+
+
+## Início Rápido
+
+### Tela de Login
+1. **Login de Administrador**: Acesse todas as funcionalidades do sistema, incluindo o cadastro e remoção de alunos, além de gerar relatórios.
+2. **Login de Professor**: Permite a consulta de alunos, inserção de notas e geração de boletins.
+
+---
+
+## Funcionalidades do Sistema
+
+### 1. Cadastro de Alunos (Administrador)
+- **Descrição**: O administrador pode cadastrar novos alunos inserindo as informações necessárias, como nome, idade, curso e matrícula.
+- **Como usar**:
+    - Acesse a tela de cadastro.
+    - Preencha os campos obrigatórios.
+    - Clique no botão "Cadastrar Aluno".
+
+### 2. Listar Alunos
+- **Descrição**: Professores e administradores podem visualizar a lista completa de alunos cadastrados no sistema.
+- **Como usar**:
+    - Na tela principal, clique em "Listar Alunos".
+    - A lista de alunos será exibida.
+
+### 3. Buscar Aluno por Matrícula
+- **Descrição**: O sistema permite a busca de alunos por número de matrícula.
+- **Como usar**:
+    - Insira a matrícula do aluno no campo de busca.
+    - Clique em "Buscar" para visualizar as informações do aluno.
+
+### 4. Inserir Notas (Professor)
+- **Descrição**: O professor pode inserir as notas das provas dos alunos diretamente no sistema.
+- **Como usar**:
+    - Selecione o aluno desejado por meio da matrícula.
+    - Digite as notas para a **Prova 1** e **Prova 2**.
+    - Clique em "Salvar Notas".
+
+### 5. Gerar Boletim
+- **Descrição**: O professor pode gerar um boletim com as notas das provas dos alunos.
+- **Como usar**:
+    - Acesse a opção "Gerar Boletim" na tela do professor.
+    - Insira a matrícula do aluno.
+    - O boletim será exibido com as notas inseridas.
+
+### 6. Gerar Relatórios (Administrador)
+- **Descrição**: O administrador pode gerar relatórios com os dados de todos os alunos cadastrados no sistema.
+- **Como usar**:
+    - Acesse a opção "Gerar Relatório".
+    - Insira o caminho do arquivo onde o relatório será salvo.
+    - O relatório será gerado no formato especificado.
+
+---
+
+## Fluxo Básico de Uso
+
+1. **Login no Sistema**: O usuário faz login no sistema utilizando as credenciais de administrador ou professor.
+2. **Acesso às Funcionalidades**:
+   - **Administrador**: Acesso a todas as funcionalidades, como cadastro, listagem de alunos, e geração de relatórios.
+   - **Professor**: Acesso à listagem de alunos, inserção de notas e geração de boletins.
+3. **Cadastro de Alunos (Administrador)**: O administrador cadastra novos alunos e mantém o sistema atualizado com as informações dos estudantes.
+4. **Inserção de Notas (Professor)**: O professor insere as notas dos alunos, garantindo que os boletins estejam sempre atualizados.
+5. **Geração de Relatórios**: O administrador pode gerar relatórios com base nos dados cadastrados no sistema, como histórico de alunos e suas notas.
+
+---
+
